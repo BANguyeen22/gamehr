@@ -1,0 +1,19 @@
+from ursina import *
+
+app = Ursina()
+
+# Ví dụ dùng FirstPersonController
+from ursina.prefabs.first_person_controller import FirstPersonController
+player = FirstPersonController()
+
+# Gỡ lock chuột khi nhấn ESC
+def input(key):
+    if key == 'escape':
+        window.lock_mouse = not window.lock_mouse
+        print('Lock mouse:', window.lock_mouse)
+
+# Cho Entity để test
+Entity(model='plane', scale=100, color=color.gray, collider='box')
+Entity(model='cube', color=color.azure, position=(0,1,5), collider='box')
+
+app.run()
